@@ -1,0 +1,71 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  /* combine with box-sizing in the body, allows all elements to inherit box-sizing */
+  box-sizing: inherit;
+}
+
+html {
+  /* widely used to allow user to enlarge while still allowing dev to easily use rem */
+  font-size: 62.5%;
+  color: white;
+
+  @include respond(tab-land) {
+    font-size: 56.5%; //1 rem = 9px, 9/16 = 56.5%
+  }
+  @include respond(tab-port) {
+    font-size: 50%; //1 rem = 8px, 8/16 =50%
+  }
+  @include respond(big-desktop) {
+    font-size: 75%; //1 rem = 12px, 12/16 = 75%
+  }
+}
+
+body {
+  box-sizing: border-box;
+  background-color: black;
+  padding: 0 5rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: white;
+}
+
+button {
+  font-family: inherit;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  padding: 1rem;
+
+  &.btn {
+    &--red {
+      background-color: red;
+    }
+    &--large {
+      font-size: 2.75rem;
+    }
+  }
+
+  @include respond(tab-land) {
+    &.btn {
+      &--large {
+        font-size: 2.25rem;
+      }
+    }
+  }
+  @include respond(phone) {
+    &.btn {
+      &--large {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

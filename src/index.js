@@ -5,8 +5,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import persistedStore from "./store";
 
-import "./css/style.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import style from "./css/main.scss";
 import "./fontawesome";
 
 ReactDOM.render(

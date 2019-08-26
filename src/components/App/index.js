@@ -1,16 +1,9 @@
 import React, { Component } from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import { searchTerm } from "./redux/actions/index";
-import { Types } from "./redux/actions/Types";
 import { connect } from "react-redux";
 
-import Footer from "./Footer";
 import LandingPage from "./LandingPage";
-import Header from "./Header";
-import Login from "./Login";
-import UserAccountPage from "./UserAccountPage";
-
 const history = createBrowserHistory();
 
 export class App extends Component {
@@ -22,35 +15,9 @@ export class App extends Component {
     return (
       <div className="container AppBody">
         <Router history={history}>
-          <Header />
           <Switch>
             <Route path="/" exact component={LandingPage} />
-            <Route path="/login" component={Login} />
-            <Route path="/userAccount" component={UserAccountPage} />
-            <Route
-              path="/github"
-              component={() => {
-                window.location = "https://github.com/loivp13";
-                return null;
-              }}
-            />
-            <Route
-              path="/linked"
-              component={() => {
-                window.location =
-                  "https://plus.google.com/u/0/115757859937195814229";
-                return null;
-              }}
-            />
-            <Route
-              path="/codesandbox"
-              component={() => {
-                window.location = "https://codesandbox.io/u/loivp13/sandboxes";
-                return null;
-              }}
-            />
           </Switch>
-          <Footer />
         </Router>
       </div>
     );
@@ -58,12 +25,7 @@ export class App extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    apiSearchResponse: state.apiSearchReponse
-  };
+  return {};
 };
 
-export default connect(
-  mapStateToProps,
-  { searchTerm }
-)(App);
+export default connect(mapStateToProps)(App);
