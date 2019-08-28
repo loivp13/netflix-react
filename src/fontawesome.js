@@ -22,7 +22,8 @@ import {
   faSortNumericUp,
   faSortNumericDown,
   faSortAmountUp,
-  faSortAmountDown
+  faSortAmountDown,
+  faEnvelope
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -58,6 +59,8 @@ library.add(
   faSortNumericDown,
   faSortAmountUp,
   faSortAmountDown,
-  faCodepen
+  faCodepen,
+  faEnvelope
+
   // more icons go here
 );

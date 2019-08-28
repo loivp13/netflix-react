@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class Section1 extends Component {
   render() {
     return (
@@ -28,10 +28,18 @@ class Section1 extends Component {
           </div>
           <div className="section1__freeTrialBtn">
             <button className="btn btn--red btn--large">
-              Try 30 days free.
+              Try 30 days free{" "}
+              <span>
+                <FontAwesomeIcon
+                  className=""
+                  icon={["fas", "long-arrow-alt-right"]}
+                  size="lg"
+                />
+              </span>
             </button>
           </div>
         </div>
+        <div className="hr--grey"></div>
       </div>
     );
   }

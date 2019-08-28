@@ -1,0 +1,121 @@
+.section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > * {
+    font-size: 2.5rem;
+  }
+
+  &__header--1 {
+    font-size: 4rem;
+    margin-top: 4rem;
+  }
+
+  &__header--2 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  &__billingGraph {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    position: relative;
+
+    &--1 {
+      margin-bottom: 2rem;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    &--2 {
+      margin: 1.5rem 0;
+      width: 25rem;
+      display: flex;
+      position: relative;
+
+      @include respond(phone) {
+        margin-right: -10rem;
+      }
+    }
+  }
+  &__icon--envelope {
+    margin-right: 2rem;
+  }
+  &__reminder {
+    &::before {
+      content: "";
+      height: 4rem;
+      width: 3px;
+      position: absolute;
+      background: white;
+      border: solid black 1px;
+      top: -4rem;
+      right: 24rem;
+    }
+  }
+
+  &__dates {
+    &--1 {
+      font-weight: 600;
+    }
+    &--2 {
+      left: -5rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    &--3 {
+      position: relative;
+      right: 9vw;
+    }
+    &--firstBillText {
+      font-size: 2.75rem;
+    }
+  }
+
+  &__timeline {
+    height: 4rem;
+    border-radius: 0.75em 0 0 0.75em;
+    width: 100%;
+    position: relative;
+    background: linear-gradient(
+      to right,
+      #00d65f 10%,
+      #308234 50%,
+      #3f3f3f 50%,
+      #3f3f3f 85%,
+      rgba(63, 63, 63, 0) 100%
+    );
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 4rem;
+      width: 4rem;
+      background: white;
+      border-radius: 50%;
+      margin-left: 49%;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      height: 4rem;
+      width: 4rem;
+      background: white;
+      border-radius: 50%;
+      margin-left: 85%;
+    }
+  }
+  &__reminderPromise {
+    width: 60%;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+  }
+}

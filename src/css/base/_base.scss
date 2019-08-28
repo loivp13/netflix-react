@@ -37,35 +37,3 @@ body {
   background-color: $color-primary;
   color: white;
 }
-
-button {
-  font-family: inherit;
-  border-radius: 5px;
-  color: white;
-  border: none;
-  padding: 1rem;
-
-  &.btn {
-    &--red {
-      background-color: red;
-    }
-    &--large {
-      font-size: 2.75rem;
-    }
-  }
-
-  @include respond(tab-land) {
-    &.btn {
-      &--large {
-        font-size: 2.25rem;
-      }
-    }
-  }
-  @include respond(phone) {
-    &.btn {
-      &--large {
-        font-size: 1.25rem;
-      }
-    }
-  }
-}
