@@ -1,0 +1,28 @@
+.section5 {
+  & > * {
+    font-size: 2rem;
+    color: $color-grey-dark-2;
+  }
+
+  width: 80%;
+  margin: auto;
+  margin-top: 5rem;
+
+  &__questions {
+    margin-bottom: 2.5rem;
+  }
+
+  &__footer--container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & [class*="item"] {
+    margin-bottom: 1.5rem;
+  }
+
+  & [class*="col"] {
+    display: flex;
+    flex-direction: column;
+  }
+}

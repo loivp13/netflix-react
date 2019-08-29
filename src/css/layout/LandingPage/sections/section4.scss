@@ -1,0 +1,40 @@
+.section4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  &__header {
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    @include respond(phone) {
+      text-align: center;
+    }
+  }
+  &__list {
+    margin-bottom: 3rem;
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+  & [class*="_listitem"] {
+    width: 55vw;
+    background-color: $color-grey-light-1;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+
+    @include respond(phone) {
+      width: 100%;
+    }
+
+    &--icon {
+    }
+
+    & [class*="text"] {
+      width: 90%;
+    }
+  }
+}

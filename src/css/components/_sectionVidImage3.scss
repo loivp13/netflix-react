@@ -1,0 +1,33 @@
+.vidImage3 {
+  margin: auto;
+  margin-top: 5rem;
+  height: 40rem;
+  width: 50rem;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--foreground {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: -35rem;
+    right: -10rem;
+    & video {
+      width: 60%;
+    }
+    z-index: -1;
+  }
+
+  &--background {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+}

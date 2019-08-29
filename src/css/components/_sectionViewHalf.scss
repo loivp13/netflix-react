@@ -1,0 +1,50 @@
+.sectionViewHalf {
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &--reverse {
+    flex-direction: row-reverse;
+    @include respond(tab-port) {
+      flex-direction: column;
+    }
+  }
+
+  &--left {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    & > * {
+      margin-bottom: 2rem;
+    }
+
+    @include respond(tab-port) {
+      width: 80vw;
+      align-items: center;
+      text-align: center;
+    }
+    button {
+      display: none;
+    }
+  }
+  &__header {
+    font-size: 5rem;
+  }
+  &__text {
+    font-size: 2rem;
+  }
+
+  &--right {
+    width: 80vw;
+  }
+}

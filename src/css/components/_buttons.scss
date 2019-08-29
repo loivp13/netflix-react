@@ -22,6 +22,14 @@ button {
     &--large {
       font-size: 2.75rem;
     }
+    &--black {
+      background-color: black;
+      color: white;
+      border: solid white 1px;
+    }
+    &--sharpEdge {
+      border-radius: 0;
+    }
   }
 
   @include respond(tab-land) {

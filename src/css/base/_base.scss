@@ -37,3 +37,14 @@ body {
   background-color: $color-primary;
   color: white;
 }
+
+li {
+  list-style: none;
+}
+
+a {
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
