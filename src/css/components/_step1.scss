@@ -1,0 +1,58 @@
+.step1 {
+  &__container {
+    font-size: 2rem;
+    margin: 10rem auto;
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    align-content: center;
+
+    @include respond("phone") {
+      max-width: 100%;
+      margin: 0 3rem;
+    }
+  }
+  &__title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    @include respond("phone") {
+      align-items: start;
+      margin-left: 2rem;
+    }
+  }
+  &__icon {
+    color: red;
+    font-size: 6rem;
+    margin: 2rem;
+
+    &--check {
+      margin: 0 2rem;
+      font-size: 1.5rem;
+      color: red;
+    }
+  }
+
+  &__text {
+    &--header {
+      font-size: 2.3rem;
+      font-weight: bold;
+      margin-bottom: 3rem;
+    }
+
+    &--item {
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  button {
+    align-self: center;
+    width: 100%;
+  }
+}

@@ -1,0 +1,35 @@
+.redTextBox {
+  background-color: red;
+  color: white;
+  height: 13rem;
+  max-width: 13rem;
+  text-align: center;
+  margin: auto;
+  padding-top: 5rem;
+  position: relative;
+
+  filter: opacity(0.5);
+  input {
+    display: none;
+    position: absolute;
+  }
+
+  @include respond(phone) {
+    height: 8rem;
+    max-width: 19rem;
+    padding-top: 2.8rem;
+  }
+}
+
+.arrow-down {
+  margin: auto;
+  filter: opacity(0);
+}
+
+.removeGrey {
+  filter: opacity(1);
+}
+
+.arrow-down.removeGrey {
+  filter: opacity(1);
+}

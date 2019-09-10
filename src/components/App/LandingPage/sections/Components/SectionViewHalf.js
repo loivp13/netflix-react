@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 export class SectionViewHalf extends Component {
   render() {
@@ -12,12 +13,18 @@ export class SectionViewHalf extends Component {
           <div className="sectionViewHalf--left">
             <h1 className="sectionViewHalf__header">{this.props.header}</h1>
             <div className="sectionViewHalf__text">{this.props.text}</div>
-            <button className="btn btn--black btn--sharpEdge btn--large">
-              Try 30 days free{" "}
-              <FontAwesomeIcon
-                icon={["fas", "long-arrow-alt-right"]}
-              ></FontAwesomeIcon>
-            </button>
+            <Link to="/browse">
+              <button className="btn btn--black btn--large">
+                Try 30 days free{" "}
+                <span>
+                  <FontAwesomeIcon
+                    className=""
+                    icon={["fas", "long-arrow-alt-right"]}
+                    size="lg"
+                  />
+                </span>
+              </button>
+            </Link>
           </div>
           <div className="sectionViewHalf--right">{this.props.image}</div>
         </div>

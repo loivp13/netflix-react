@@ -18,7 +18,7 @@
   }
 
   &--left {
-    width: 40vw;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,9 +32,10 @@
       width: 80vw;
       align-items: center;
       text-align: center;
-    }
-    button {
-      display: none;
+
+      button {
+        display: none;
+      }
     }
   }
   &__header {

@@ -10,10 +10,14 @@
 @import "components/buttons";
 @import "components/hr";
 @import "components/purgeButton";
+@import "components/redBoxText";
 @import "components/_sectionViewHalf";
 @import "components/_sectionVidImage1";
 @import "components/_sectionVidImage2";
 @import "components/_sectionVidImage3";
+@import "components/_signinFooter";
+@import "components/_step1";
+@import "components/_step2";
 
 @import "layout/LandingPage/LandingPage.scss";
 @import "layout/LandingPage/sections/section1";
@@ -21,6 +25,6 @@
 @import "layout/LandingPage/sections/section3";
 @import "layout/LandingPage/sections/section4";
 @import "layout/LandingPage/sections/section5";
-@import "layout/LandingPage/sections/section6";
-@import "layout/LandingPage/sections/section7";
-@import "layout/LandingPage/sections/section8";
+@import "layout/LandingPage/sections/section5";
+
+@import "layout/SignIn/_signIn";

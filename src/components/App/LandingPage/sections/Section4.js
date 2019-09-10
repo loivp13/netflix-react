@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export class Section4 extends Component {
   render() {
@@ -50,13 +50,18 @@ export class Section4 extends Component {
             </span>
           </li>
         </ul>
-        <button className="btn btn--large btn--red u-margin-bottom-medium">
-          TRY 30 DAYS FREE{" "}
-          <FontAwesomeIcon
-            className=""
-            icon={["fas", "long-arrow-alt-right"]}
-          ></FontAwesomeIcon>
-        </button>
+        <Link className="u-margin-bottom-medium" to="/browse">
+          <button className="btn btn--red btn--large">
+            Try 30 days free{" "}
+            <span>
+              <FontAwesomeIcon
+                className=""
+                icon={["fas", "long-arrow-alt-right"]}
+                size="lg"
+              />
+            </span>
+          </button>
+        </Link>
         <div className="hr--grey"></div>
       </div>
     );

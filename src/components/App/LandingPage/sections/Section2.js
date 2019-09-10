@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+
 export class Section2 extends Component {
   render() {
     return (
@@ -32,13 +34,18 @@ export class Section2 extends Component {
           We'll email you a reminder three days before your trial ends. Cancel
           anytime before 9/21 and you won't be charged.
         </div>
-        <button className="btn btn--red u-margin-bottom-medium">
-          TRY 30 DAYS FREE{" "}
-          <FontAwesomeIcon
-            className=""
-            icon={["fas", "long-arrow-alt-right"]}
-          ></FontAwesomeIcon>
-        </button>
+        <Link to="/browse">
+          <button className="btn btn--red btn--large">
+            Try 30 days free{" "}
+            <span>
+              <FontAwesomeIcon
+                className=""
+                icon={["fas", "long-arrow-alt-right"]}
+                size="lg"
+              />
+            </span>
+          </button>
+        </Link>
         <div className="hr--grey"></div>
       </div>
     );

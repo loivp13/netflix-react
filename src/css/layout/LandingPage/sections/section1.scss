@@ -4,6 +4,12 @@
   height: 100%;
   z-index: 0;
 
+  &__signinBtn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
   &__backgroundImage {
     position: absolute;
     background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/b20f7cac-72e2-4b81-a88c-9fb6419e2769/d1bf1c44-d54b-4a4b-8204-ffa58adc5829/US-en-20190819-popsignuptwoweeks-perspective_alpha_website_large.jpg");
@@ -30,8 +36,8 @@
     width: 187px;
 
     @include respond(tab-port) {
-      height: 30px;
-      width: 100px;
+      height: 5rem;
+      width: 20rem;
     }
   }
 

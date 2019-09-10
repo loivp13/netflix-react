@@ -4,6 +4,10 @@ import { createBrowserHistory } from "history";
 import { connect } from "react-redux";
 
 import LandingPage from "./LandingPage";
+import Browse from "./Browse";
+import SignIn from "./SignUp";
+import SignUp from "./SignUp";
+
 const history = createBrowserHistory();
 
 export class App extends Component {
@@ -17,6 +21,8 @@ export class App extends Component {
         <Router history={history}>
           <Switch>
             <Route path="/" exact component={LandingPage} />
+            <Route path="/browse" component={Browse}></Route>
+            <Route path="/signup" component={SignUp}></Route>
           </Switch>
         </Router>
       </div>

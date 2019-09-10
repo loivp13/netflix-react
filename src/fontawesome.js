@@ -2,7 +2,10 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 // import your icons
-import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
+import {
+  faTimesCircle,
+  faCheckCircle
+} from "@fortawesome/free-regular-svg-icons";
 import {
   faUserCircle,
   faHeart,
@@ -23,7 +26,8 @@ import {
   faSortNumericDown,
   faSortAmountUp,
   faSortAmountDown,
-  faEnvelope
+  faEnvelope,
+  faCheck
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -60,7 +64,9 @@ library.add(
   faSortAmountUp,
   faSortAmountDown,
   faCodepen,
-  faEnvelope
+  faEnvelope,
+  faCheck,
+  faCheckCircle
 
   // more icons go here
 );

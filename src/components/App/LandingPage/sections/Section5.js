@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export class Section5 extends Component {
   render() {
@@ -11,29 +12,63 @@ export class Section5 extends Component {
           <div className="section5___footer">
             <div className="section5__footer--container">
               <div className="section5__footer-col1">
-                <a className="section5__col1--item1">FAQ</a>
-                <a className="section5__col1--item2">Investor Relations</a>
-                <a className="section5__col1--item3">Ways to Watch</a>
-                <a className="section5__col1--item4">Corporate Information</a>
-                <a className="section5__col1--item5">Netflix Originals</a>
+                <Link to="#" className="section5__col1--item1">
+                  FAQ
+                </Link>
+                <Link to="#" className="section5__col1--item2">
+                  Investor Relations
+                </Link>
+                <Link to="#" className="section5__col1--item3">
+                  Ways to Watch
+                </Link>
+                <Link to="#" className="section5__col1--item4">
+                  Corporate Information
+                </Link>
+                <Link to="#" className="section5__col1--item5">
+                  Netflix Originals
+                </Link>
               </div>
-              <a className="section5__footer-col2">
-                <a className="seciton5__col2--item1">Help Center</a>
-                <a className="seciton5__col2--item2">Jobs</a>
-                <a className="seciton5__col2--item3">Terms of Use</a>
-                <a className="seciton5__col2--item4">Contact Us</a>
-              </a>
+              <div to="#" className="section5__footer-col2">
+                <Link to="#" className="seciton5__col2--item1">
+                  Help Center
+                </Link>
+                <Link to="#" className="seciton5__col2--item2">
+                  Jobs
+                </Link>
+                <Link to="#" className="seciton5__col2--item3">
+                  Terms of Use
+                </Link>
+                <Link to="#" className="seciton5__col2--item4">
+                  Contact Us
+                </Link>
+              </div>
               <div className="section5__footer-col3">
-                <a className="seciton5__col3--item1">Account</a>
-                <a className="seciton5__col3--item2">Redeem Gift Cards</a>
-                <a className="seciton5__col3--item3">Privacy</a>
-                <a className="seciton5__col3--item4">Speed Test</a>
+                <Link to="#" className="seciton5__col3--item1">
+                  Account
+                </Link>
+                <Link to="#" className="seciton5__col3--item2">
+                  Redeem Gift Cards
+                </Link>
+                <Link to="#" className="seciton5__col3--item3">
+                  Privacy
+                </Link>
+                <Link to="#" className="seciton5__col3--item4">
+                  Speed Test
+                </Link>
               </div>
               <div className="section5__footer-col4">
-                <a className="seciton5__col4--item1">Media Center</a>
-                <a className="seciton5__col4--item2">Buy Gift Cards</a>
-                <a className="seciton5__col4--item3">Cookie Perferences</a>
-                <a className="seciton5__col4--item4">Legal Notices</a>
+                <Link to="#" className="seciton5__col4--item1">
+                  Media Center
+                </Link>
+                <Link to="#" className="seciton5__col4--item2">
+                  Buy Gift Cards
+                </Link>
+                <Link to="#" className="seciton5__col4--item3">
+                  Cookie Perferences
+                </Link>
+                <Link to="#" className="seciton5__col4--item4">
+                  Legal Notices
+                </Link>
               </div>
             </div>
           </div>

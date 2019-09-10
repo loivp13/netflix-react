@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 class Section1 extends Component {
   render() {
     return (
@@ -16,7 +17,15 @@ class Section1 extends Component {
             </svg>
           </div>
           <div className="section1__signinBtn">
-            <button className="btn btn--red">Sign In</button>
+            <Link to="/signin">
+              <button className="btn btn--red btn-third--1">Sign In</button>
+            </Link>
+            <Link to="/signup">
+              <button className="btn btn--black btn-third--2">Sign Up</button>
+            </Link>
+            <Link to="/browse">
+              <button className="btn btn--clear btn-third--3">Try Now</button>
+            </Link>
           </div>
         </div>
         <div className="section1__body">
@@ -27,16 +36,18 @@ class Section1 extends Component {
             Watch anywhere. Cancel anytime
           </div>
           <div className="section1__freeTrialBtn">
-            <button className="btn btn--red btn--large">
-              Try 30 days free{" "}
-              <span>
-                <FontAwesomeIcon
-                  className=""
-                  icon={["fas", "long-arrow-alt-right"]}
-                  size="lg"
-                />
-              </span>
-            </button>
+            <Link to="/browse">
+              <button className="btn btn--red btn--large">
+                Try 30 days free{" "}
+                <span>
+                  <FontAwesomeIcon
+                    className=""
+                    icon={["fas", "long-arrow-alt-right"]}
+                    size="lg"
+                  />
+                </span>
+              </button>
+            </Link>
           </div>
         </div>
         <div className="hr--grey"></div>

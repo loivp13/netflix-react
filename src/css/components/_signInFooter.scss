@@ -1,0 +1,22 @@
+.signInFooter {
+  color: grey;
+  font-size: 1.75rem;
+  margin-left: 2rem;
+  &--links {
+    display: grid;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    align-items: center;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+
+    @include respond("phone") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  [class*="item"] {
+    @include respond("phone") {
+      margin-bottom: 2rem;
+    }
+  }
+}

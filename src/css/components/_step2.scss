@@ -1,0 +1,98 @@
+.step2 {
+  padding: 0 15rem;
+  @include respond(tab-port) {
+    padding: 0 5rem;
+  }
+  @include respond(phone) {
+    padding: 0;
+  }
+  &__header {
+    font-size: 1.8rem;
+
+    & > * {
+      margin-bottom: 1.3rem;
+    }
+    &--1 {
+      text-transform: uppercase;
+    }
+    &--2 {
+      font-size: 2.3rem;
+      font-weight: bold;
+    }
+  }
+  &__body {
+    font-size: 1.8rem;
+    padding: 2rem;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+  &__row {
+    margin: 2rem 0;
+
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    @include respond(phone) {
+      position: relative;
+      height: 9rem;
+      margin: 1rem 0;
+      align-items: flex-end;
+    }
+    &--sentence {
+      width: 50%;
+      text-align: start;
+
+      @include respond(phone) {
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        align-self: start;
+      }
+    }
+    &--col--1 {
+      width: 16%;
+      color: lightgrey;
+      @include respond(phone) {
+        width: 33%;
+      }
+    }
+    &--col--2 {
+      width: 16%;
+      color: lightgrey;
+      @include respond(phone) {
+        width: 33%;
+      }
+    }
+    &--col--3 {
+      width: 16%;
+      color: lightgrey;
+      @include respond(phone) {
+        width: 33%;
+      }
+    }
+    &:not(:last-of-type) {
+      border-bottom: 1px solid lightgrey;
+      padding-bottom: 2rem;
+    }
+    &:first-of-type {
+      border-bottom: none;
+    }
+  }
+}
+
+[class*="arrow-down"] {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+
+  border-top: 20px solid red;
+}
+
+.text-red {
+  color: red;
+}
