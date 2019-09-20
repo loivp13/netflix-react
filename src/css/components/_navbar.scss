@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  padding: 3rem;
+  background-color: rgb(29, 29, 29);
+
+  &__right {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    &--logo {
+      fill: red;
+      height: 25px;
+      width: 100px;
+    }
+  }
+  &__left {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

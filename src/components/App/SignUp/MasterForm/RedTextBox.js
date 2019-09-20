@@ -10,7 +10,16 @@ export class RedTextBox extends Component {
         return "working";
       }
     };
-    const renderField = ({ input, label, type, meta: { touched, error } }) => (
+    const renderError = ({ error, touched }) => {
+      if (touched && error) {
+        return (
+          <div className="text-red text-font-small">
+            <div className="header u-margin-bottom-small">{error}</div>
+          </div>
+        );
+      }
+    };
+    const renderField = ({ input, label, type, meta }) => (
       <div>
         <div className={`${removeGrayStyle(this.props.color)} redTextBox`}>
           <input
@@ -20,6 +29,7 @@ export class RedTextBox extends Component {
             className="form__radio--input"
           />
           {this.props.text}
+          {renderError(meta)}
         </div>
         <div
           className={`${removeGrayStyle(this.props.color)} arrow-down`}
@@ -40,8 +50,17 @@ export class RedTextBox extends Component {
     );
   }
 }
+const validate = value => {
+  const errors = {};
+  console.log(value);
 
+  if (!value) {
+    errors.tier = "Please select one";
+  }
+  return errors;
+};
 export default reduxForm({
-  form: "wizard", //Form name is same
-  destroyOnUnmount: false
+  form: "wizard",
+  destroyOnUnmount: false,
+  validate
 })(RedTextBox);

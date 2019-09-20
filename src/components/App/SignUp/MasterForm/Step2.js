@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 
 import RedTextBox from "./RedTextBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -191,11 +190,18 @@ export class Step2 extends Component {
   }
 }
 let mapStateToProps = (state, ownProps) => {
-  return { selected: state.form.wizard.values.tier };
+  if (!state.form.wizard) {
+    return { selected: "Premium" };
+  } else if (state.form.wizard.values) {
+    return { selected: "Premium" };
+  } else {
+    return { selected: "Premium" };
+  }
 };
 
 export default connect(mapStateToProps)(
   reduxForm({
-    form: "wizard"
+    form: "wizard",
+    destroyOnUnmount: false
   })(Step2)
 );

@@ -7,17 +7,22 @@
 @import "base/utility";
 @import "base/typography";
 
+@import "components/billboard";
+@import "components/browse";
 @import "components/buttons";
 @import "components/hr";
+@import "components/navbar";
 @import "components/purgeButton";
 @import "components/redBoxText";
 @import "components/_sectionViewHalf";
+@import "components/_signIn";
 @import "components/_sectionVidImage1";
 @import "components/_sectionVidImage2";
 @import "components/_sectionVidImage3";
 @import "components/_signinFooter";
 @import "components/_step1";
 @import "components/_step2";
+@import "components/_step3";
 
 @import "layout/LandingPage/LandingPage.scss";
 @import "layout/LandingPage/sections/section1";
