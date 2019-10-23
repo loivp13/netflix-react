@@ -1,0 +1,42 @@
+.Billboard {
+  background: url("https://occ-0-33-3996.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABW9j81NdNXtQJhLxh3FrDtD-6iGRqa5Bv028nHZrnidbP8TZMKakBJrluiZulILt04mJauGtQgm6yEKNcBfFFa48Urd_0ExmGQ.webp?r=dae");
+  height: 80vh;
+  background-position: center;
+  background-size: cover;
+
+  &--container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &--left {
+    align-self: flex-end;
+    font-size: 1.8rem;
+    width: 10rem;
+    border-left: 3px solid white;
+    height: 3rem;
+    padding: 0.5rem;
+  }
+  &--right {
+    width: 40vw;
+    padding: 3rem;
+    padding-top: 6rem;
+    & > * {
+      padding-bottom: 2rem;
+    }
+    &--image {
+      width: 100%;
+    }
+    &--btnGroup {
+      display: flex;
+      justify-content: space-around;
+      & > * {
+        width: 30%;
+      }
+    }
+    &--description {
+      font-size: 1.8rem;
+      font-weight: 100;
+      letter-spacing: 0.5px;
+    }
+  }
+}

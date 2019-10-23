@@ -1,4 +1,5 @@
 export const Types = {
   Join: "Join",
-  SignIn: "SignIn"
+  SignIn: "SignIn",
+  YTResults: "YTResults"
 };

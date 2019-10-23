@@ -1,9 +1,11 @@
 .navbar {
+  position: absolute;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   font-size: 1.3rem;
   padding: 3rem;
-  background-color: rgb(29, 29, 29);
+  background-color: rgba(29, 29, 29, 0);
 
   &__right {
     width: 50%;

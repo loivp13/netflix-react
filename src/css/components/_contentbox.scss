@@ -1,0 +1,19 @@
+.ContentBox {
+  width: 6.6%;
+  transition: transform 300ms ease 100ms;
+  overflow: hidden;
+  margin: 0;
+  &:hover ~ & {
+    transform: translateX(25%);
+  }
+  &:hover {
+    transform: scale(1.5);
+  }
+  &--image {
+    object-fit: fill;
+    height: 20rem;
+    width: 100%;
+    margin: -3rem 0;
+    display: block;
+  }
+}
