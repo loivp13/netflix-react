@@ -1,27 +1,20 @@
 import React, { Component } from "react";
-import moduleName, { ContentBox } from "./ContentBox";
+import ContentBox from "./ContentBox";
 
 export class ContentRow extends Component {
   render() {
-    return (
-      <div className="ContentRow">
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-        <ContentBox></ContentBox>
-      </div>
-    );
+    const generateContentBox = () => {
+      return this.props.data.map(x => {
+        return (
+          <ContentBox
+            id={this.props.id}
+            snippet={x.snippet}
+            key={x.id.videoId}
+          ></ContentBox>
+        );
+      });
+    };
+    return <div className="ContentRow">{generateContentBox()}</div>;
   }
 }
 

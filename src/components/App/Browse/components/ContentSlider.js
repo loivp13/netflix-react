@@ -1,17 +1,24 @@
 import React, { Component } from "react";
 import ContentRow from "./ContentRow";
+import { connect } from "react-redux";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export class ContentSlider extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      section: 0
+    };
   }
   componentDidMount() {}
   render() {
     const renderContentRow = () => {
-      return <ContentRow data={this.props.videos}></ContentRow>;
+      return (
+        <React.Fragment>
+          <ContentRow data={this.props.data} id={this.props.id}></ContentRow>
+        </React.Fragment>
+      );
     };
 
     return (
@@ -22,7 +29,9 @@ export class ContentSlider extends Component {
             icon={["fas", "long-arrow-alt-left"]}
           ></FontAwesomeIcon>
         </button>
+
         {renderContentRow()}
+
         <button className="btn btn--semiTransparent ContentSlider__arrowIcon--right">
           <FontAwesomeIcon
             className=""
@@ -33,5 +42,7 @@ export class ContentSlider extends Component {
     );
   }
 }
-
-export default ContentSlider;
+const mapStateToProps = (state, ownProps) => {
+  return {};
+};
+export default connect(mapStateToProps)(ContentSlider);

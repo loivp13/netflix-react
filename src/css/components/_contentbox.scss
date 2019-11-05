@@ -3,11 +3,15 @@
   transition: transform 300ms ease 100ms;
   overflow: hidden;
   margin: 0;
+  position: relative;
   &:hover ~ & {
     transform: translateX(25%);
   }
   &:hover {
     transform: scale(1.5);
+  }
+  &:hover &--content {
+    opacity: 1;
   }
   &--image {
     object-fit: fill;
@@ -15,5 +19,42 @@
     width: 100%;
     margin: -3rem 0;
     display: block;
+    position: absolute;
+    z-index: -1;
+  }
+  &--content {
+    height: 14rem;
+    display: flex;
+    position: relative;
+    padding: 1rem;
+
+    opacity: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(0, 0, 0));
+
+    &__left {
+      margin-top: auto;
+      width: 80%;
+    }
+    &__right {
+      width: 20%;
+      margin-top: auto;
+      justify-content: center;
+      & > * {
+        text-align: center;
+        margin: 0 auto;
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        border: 1px grey solid;
+        background-color: rgba(0, 0, 0, 0.575);
+      }
+      & svg {
+        margin-top: 0.5rem;
+        font-size: 1.3rem;
+      }
+      & svg:hover {
+        transform: scale(1.3);
+      }
+    }
   }
 }

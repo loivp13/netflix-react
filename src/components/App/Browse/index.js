@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar";
 import Billboard from "./components/Billboard";
 import ContentSlider from "./components/ContentSlider";
 import ContentSliderProd from "./components/ContentSliderProd";
+import ContentDetails from "./components/ContentDetails";
+
 import { connect } from "react-redux";
 
 class Browse extends Component {
@@ -12,16 +14,26 @@ class Browse extends Component {
   }
   render() {
     let env = "dev";
+
+    let generateContentDetails = index => {
+      if (this.props.contentDetails.id === index) {
+        return <ContentDetails></ContentDetails>;
+      }
+    };
+
     let generateContentSlider = () => {
       return this.props.videos.map((x, index) => (
-        <ContentSlider key={index} data={x}></ContentSlider>
+        <React.Fragment key={index + 1000}>
+          <ContentSlider key={index} data={x} id={index}></ContentSlider>
+          {generateContentDetails(index)}
+        </React.Fragment>
       ));
     };
 
     const generateSliders =
       env === "dev"
         ? () => {
-            return <React.Fragment>{generateContentSlider()}</React.Fragment>;
+            return generateContentSlider();
           }
         : () => {
             return <ContentSliderProd></ContentSliderProd>;
@@ -40,7 +52,8 @@ class Browse extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    videos: state.videos.videos
+    videos: state.videos.videos,
+    contentDetails: state.contentDetails
   };
 };
 

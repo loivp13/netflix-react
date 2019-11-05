@@ -1663,7 +1663,7 @@ let data = {
         }
     ]
 }
-let defaultData = _.chunk(data.items, 15)
+let defaultData = _.chunk(data.items.slice(0,45), 15)
 
 export default (state = { videos: defaultData }, action) => {
   switch (action.type) {

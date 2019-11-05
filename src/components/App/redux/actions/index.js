@@ -53,3 +53,29 @@ export const setMergeData = data => async (dispatch, getState) => {
   );
   dispatch({ type: Types.YTResults, payload: data });
 };
+
+//Show/Hide ContentDetails
+export const toggleContentDetails = (snippet, id) => async (
+  dispatch,
+  getState
+) => {
+  function cleanTitleString(string) {
+    let indexOfPipeChar = string.indexOf("|");
+    return string.slice(0, indexOfPipeChar).replace(" ", "+");
+  }
+  console.log(snippet);
+  let term = cleanTitleString(snippet.title);
+
+  let res = await axios
+    .get(`http://www.omdbapi.com/?t=${term}&apikey=${keys.OMDB}`)
+    .then(res => {
+      console.log(res);
+      res.data.description = snippet.description;
+      return res.data;
+    });
+  console.log(res);
+  dispatch({
+    type: Types.ToggleContentDetails,
+    payload: { data: res, id: id }
+  });
+};

@@ -1,11 +1,15 @@
 // import the library
 import { library } from "@fortawesome/fontawesome-svg-core";
 
-// import your icons
+// iimport from regular icons
 import {
   faTimesCircle,
-  faCheckCircle
+  faCheckCircle,
+  faThumbsUp,
+  faThumbsDown
 } from "@fortawesome/free-regular-svg-icons";
+
+//import from solid icons
 import {
   faUserCircle,
   faHeart,
@@ -27,9 +31,10 @@ import {
   faSortAmountUp,
   faSortAmountDown,
   faEnvelope,
-  faCheck
+  faCheck,
+  faPlay
 } from "@fortawesome/free-solid-svg-icons";
-
+//import brand icons
 import {
   faGitSquare,
   faLinkedin,
@@ -66,7 +71,10 @@ library.add(
   faCodepen,
   faEnvelope,
   faCheck,
-  faCheckCircle
+  faCheckCircle,
+  faThumbsUp,
+  faThumbsDown,
+  faPlay
 
   // more icons go here
 );

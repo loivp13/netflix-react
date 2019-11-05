@@ -59,6 +59,14 @@ button {
     &--semiTransparent:hover {
       transform: translateY(0px);
     }
+    &--fullTransparent {
+      background-color: rgba(48, 48, 48, 0.02);
+      outline: none;
+      padding: 0;
+    }
+    &--fullTransparent:hover {
+      transform: translateY(3px);
+    }
 
     /////////SIZES//////////
     &--full {
