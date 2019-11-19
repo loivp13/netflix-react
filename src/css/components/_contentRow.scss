@@ -6,6 +6,15 @@
   transition: transform 300ms ease 100ms;
   background-color: black;
   z-index: 1;
+  @include respond("tab-land") {
+    width: 300%;
+  }
+  @include respond("tab-port") {
+    width: 375%;
+  }
+  @include respond("phone") {
+    width: 500%;
+  }
   &:hover {
     z-index: 4;
   }

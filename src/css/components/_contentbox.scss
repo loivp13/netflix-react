@@ -4,6 +4,12 @@
   overflow: hidden;
   margin: 0;
   position: relative;
+  @include respond("tab-land") {
+  }
+  @include respond("tab-port") {
+  }
+  @include respond("phone") {
+  }
   &:hover ~ & {
     transform: translateX(25%);
   }

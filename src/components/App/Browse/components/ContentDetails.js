@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { toggleContentDetails } from "../../redux/actions";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -12,7 +13,6 @@ export class ContentDetails extends Component {
   componentDidMount() {}
   render() {
     let { contentDetails } = this.props;
-    console.log(contentDetails);
     let matchRatingColor = rating => {
       let className = "ContentDetails__score--";
       switch (true) {
@@ -28,7 +28,12 @@ export class ContentDetails extends Component {
       <div className="ContentDetails">
         <div className="ContentDetails__top">
           <div className="ContentDetails__title">{contentDetails.Title}</div>
-          <div className="ContentDetails__closeButton">
+          <div
+            className="ContentDetails__closeButton"
+            onClick={() => {
+              this.props.toggleContentDetails({}, null);
+            }}
+          >
             <button className="btn btn--fullTransparent">
               <FontAwesomeIcon
                 className=""
@@ -113,10 +118,12 @@ export class ContentDetails extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
   return {
     contentDetails: state.contentDetails.contentDetails
   };
 };
 
-export default connect(mapStateToProps)(ContentDetails);
+export default connect(
+  mapStateToProps,
+  { toggleContentDetails }
+)(ContentDetails);

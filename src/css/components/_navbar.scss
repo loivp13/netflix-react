@@ -5,23 +5,69 @@
   justify-content: space-between;
   font-size: 1.3rem;
   padding: 3rem;
-  background-color: rgba(29, 29, 29, 0);
+  background-color: rgba(29, 29, 29, 0.459);
 
   &__right {
     width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    &--browse {
+      display: none;
+    }
+    @include respond("phone") {
+      &--browse {
+        display: block;
+      }
+      &--browse ~ * {
+        display: none;
+      }
+    }
+    &--browse:hover ~ * {
+      display: block;
+    }
     &--logo {
       fill: red;
       height: 25px;
       width: 100px;
     }
   }
+
   &__left {
     width: 30%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    @include respond("tab-port") {
+      &--kids {
+        display: none;
+      }
+      &--dvd {
+        display: none;
+      }
+    }
+  }
+  .navbar__right--list {
+    &--true {
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      width: 25rem;
+      font-size: 2rem;
+      background-color: rgba(0, 0, 0, 0.747);
+      top: 10vh;
+      right: 50%;
+      border-top: 2px white solid;
+      padding: 1rem;
+      text-align: center;
+    }
+    &--false {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-left: 3rem;
+    }
   }
 }

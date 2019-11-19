@@ -64,7 +64,7 @@ export const toggleContentDetails = (snippet, id) => async (
     return string.slice(0, indexOfPipeChar).replace(" ", "+");
   }
   console.log(snippet);
-  let term = cleanTitleString(snippet.title);
+  let term = snippet.title ? cleanTitleString(snippet.title) : "";
 
   let res = await axios
     .get(`http://www.omdbapi.com/?t=${term}&apikey=${keys.OMDB}`)

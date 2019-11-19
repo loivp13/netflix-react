@@ -11,6 +11,7 @@ import {
 
 //import from solid icons
 import {
+  faGift,
   faUserCircle,
   faHeart,
   faTrash,
@@ -24,6 +25,7 @@ import {
   faBars,
   faLongArrowAltRight,
   faLongArrowAltLeft,
+  faCaretDown,
   faSortAlphaUp,
   faSortAlphaDown,
   faSortNumericUp,
@@ -32,7 +34,9 @@ import {
   faSortAmountDown,
   faEnvelope,
   faCheck,
-  faPlay
+  faPlay,
+  faBell,
+  faUser
 } from "@fortawesome/free-solid-svg-icons";
 //import brand icons
 import {
@@ -74,7 +78,11 @@ library.add(
   faCheckCircle,
   faThumbsUp,
   faThumbsDown,
-  faPlay
+  faPlay,
+  faGift,
+  faBell,
+  faUser,
+  faCaretDown
 
   // more icons go here
 );

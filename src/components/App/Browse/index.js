@@ -10,7 +10,13 @@ import { connect } from "react-redux";
 class Browse extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      width: 0
+    };
+    this.size = React.createRef();
+  }
+  componentDidMount() {
+    this.setState({ width: this.size.current.clientWidth });
   }
   render() {
     let env = "dev";
@@ -24,7 +30,14 @@ class Browse extends Component {
     let generateContentSlider = () => {
       return this.props.videos.map((x, index) => (
         <React.Fragment key={index + 1000}>
-          <ContentSlider key={index} data={x} id={index}></ContentSlider>
+          <div className="Browse__MeasureContent" ref={this.size}>
+            <ContentSlider
+              width={this.state.width}
+              key={index}
+              data={x}
+              id={index}
+            ></ContentSlider>
+          </div>
           {generateContentDetails(index)}
         </React.Fragment>
       ));
