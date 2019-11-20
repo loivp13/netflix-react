@@ -4,6 +4,7 @@ import RedTextBox from "./RedTextBox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
+import { timingSafeEqual } from "crypto";
 
 export class Step2 extends Component {
   render() {
@@ -11,6 +12,7 @@ export class Step2 extends Component {
       return null;
     }
     const checkSelectedBasic = () => {
+      console.log(this.props.selected);
       return this.props.selected === "Basic" ? "text-red" : "";
     };
     const checkSelectedStandard = () => {
@@ -190,12 +192,10 @@ export class Step2 extends Component {
   }
 }
 let mapStateToProps = (state, ownProps) => {
-  if (!state.form.wizard) {
-    return { selected: "Premium" };
-  } else if (state.form.wizard.values) {
+  if (!state.form.wizard.values) {
     return { selected: "Premium" };
   } else {
-    return { selected: "Premium" };
+    return { selected: state.form.wizard.values.tier };
   }
 };
 
