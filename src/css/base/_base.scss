@@ -51,3 +51,9 @@ a {
     color: white;
   }
 }
+
+@include respond("tab-land") {
+  .fa-2x {
+    font-size: 1em;
+  }
+}

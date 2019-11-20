@@ -12,10 +12,10 @@
   @include respond("phone") {
   }
   &:hover ~ & {
-    transform: translateX(25%);
+    transform: translateX(0%);
   }
   &:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
   }
   &:hover &--content {
     opacity: 1;

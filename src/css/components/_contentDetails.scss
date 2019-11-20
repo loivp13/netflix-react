@@ -2,6 +2,16 @@
   width: 100%;
   min-height: 25vh;
   font-size: 2rem;
+
+  @include respond("tab-port") {
+    padding: 6rem;
+  }
+  @include respond("phone") {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0rem;
+  }
   &__top {
     display: flex;
     justify-content: space-between;
@@ -12,6 +22,9 @@
     justify-content: space-between;
     align-items: center;
     width: 70vw;
+    @include respond("tab-port") {
+      width: 90vw;
+    }
   }
   &__left {
     width: 50%;
@@ -30,7 +43,9 @@
   }
   &__infoSnippet {
     display: flex;
-
+    @include respond("phone") {
+      height: 4rem;
+    }
     & > * {
       margin-right: 1rem;
       margin-bottom: 1rem;
@@ -55,6 +70,9 @@
   }
   &__buttonGroup {
     width: 70%;
+    @include respond("tab-land") {
+      width: 100%;
+    }
     &--play {
       display: flex;
       align-items: center;
