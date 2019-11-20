@@ -98,14 +98,12 @@ export class ContentSlider extends Component {
   render() {
     const renderContentRow = () => {
       return (
-        <React.Fragment>
-          <ContentRow
-            moveRight={this.state.moveRight}
-            ref={el => (this.el = el)}
-            data={this.props.data}
-            id={this.props.id}
-          ></ContentRow>
-        </React.Fragment>
+        <ContentRow
+          moveRight={this.state.moveRight}
+          ref={el => (this.el = el)}
+          data={this.props.data}
+          id={this.props.id}
+        ></ContentRow>
       );
     };
 

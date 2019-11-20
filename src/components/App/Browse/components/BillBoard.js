@@ -33,8 +33,8 @@ class BillBoard extends Component {
             </div>
             <h1>Watch Part 2 Now</h1>
             <h2 className="Billboard--right--description">
-              Misadventure is her middle anme, Unfortunaely, 'princess' is her
-              title. A madcap medieval quest from matt Groening
+              Misadventure is her middle name. Unfortunaely, 'princess' is her
+              title. A madcap medieval quest from Matt Groening
             </h2>
           </div>
           <div className="Billboard--left">

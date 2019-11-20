@@ -3,7 +3,15 @@
   height: 80vh;
   background-position: center;
   background-size: cover;
-
+  @include respond("tab-land") {
+    height: 60vh;
+  }
+  @include respond("tab-port") {
+    height: 50vh;
+  }
+  @include respond("phone-XS") {
+    height: 40vh;
+  }
   &--container {
     display: flex;
     justify-content: space-between;

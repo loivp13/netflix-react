@@ -1,7 +1,7 @@
 {
   "name": "netflix-react",
   "version": "1.0.0",
-  "description": "Creating a fake netflix site",
+  "description": "Creating a netflix replicate site",
   "main": "index.js",
   "scripts": {
     "start": "node ./dist/server.js",
