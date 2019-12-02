@@ -12,39 +12,68 @@ export class ContentSlider extends Component {
       totalSection: 0,
       section: 0,
       moveRight: 0,
-      width: 0
+      width: 0,
+      firstBox: 0,
+      lastBox: 0,
+      totalBoxes: 0
     };
     this.ContentRowElem = React.createRef();
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.size.width !== this.props.size.width) {
-      let { width } = this.props.size;
-      console.log(width);
-      switch (true) {
-        case width > 1092.63:
-          return this.setState({ totalSection: 150, width: width });
-        case width <= 1092.63 && width > 883:
-          return this.setState({ totalSection: 200, width: width });
-        case width <= 883 && width > 583:
-          return this.setState({ totalSection: 275, width: width });
-        default:
-          return this.setState({ totalSection: 400, width: width });
-      }
+      this.onWidthScale();
     }
   }
   componentWillMount() {
-    let { width } = this.props.size;
-    switch (true) {
-      case width >= 1092.63:
-        return this.setState({ totalSection: 150, width: width });
-      case width <= 1092.63 && width > 883:
-        return this.setState({ totalSection: 200, width: width });
-      case width <= 883 && width >= 583:
-        return this.setState({ totalSection: 275, width: width });
-      default:
-        return this.setState({ totalSection: 400, width: width });
-    }
+    this.onWidthScale();
   }
+
+  //setState for translateCSS fix for
+
+  //setState for Sliding computation
+  onWidthScale = () => {
+    let { width } = this.props.size;
+    console.log(width);
+    switch (true) {
+      case width > 1092.63:
+        return this.setState({
+          totalSection: 150,
+          width: width,
+          moveRight: 0,
+          firstBox: 0,
+          lastBox: 5,
+          totalBoxes: 6
+        });
+      case width <= 1092.63 && width > 883:
+        return this.setState({
+          totalSection: 200,
+          width: width,
+          moveRight: 0,
+          firstBox: 0,
+          lastBox: 4,
+          totalBoxes: 5
+        });
+      case width <= 883 && width > 583:
+        return this.setState({
+          totalSection: 275,
+          width: width,
+          moveRight: 0,
+          firstBox: 0,
+          lastBox: 3,
+          totalBoxes: 4
+        });
+      default:
+        return this.setState({
+          totalSection: 400,
+          width: width,
+          moveRight: 0,
+          firstBox: 0,
+          lastBox: 2,
+          totalBoxes: 3
+        });
+    }
+  };
+
   handlePrevClick = () => {
     let { section, totalSection, moveRight, width } = this.state;
     console.log(section, totalSection, moveRight);
@@ -69,12 +98,17 @@ export class ContentSlider extends Component {
     }
   };
   handleNextClick = () => {
-    let { section, totalSection, moveRight } = this.state;
+    let { section, totalSection, moveRight, totalBoxes } = this.state;
     let { width } = this.props.size;
     console.log(section, totalSection, moveRight);
 
     if (section === totalSection) {
-      return this.setState({ moveRight: 0, section: 0 });
+      return this.setState({
+        moveRight: 0,
+        section: 0,
+        firstBox: 0,
+        lastBox: totalBoxes
+      });
     }
     let newSection = section + 100;
     console.log(section);
@@ -82,12 +116,16 @@ export class ContentSlider extends Component {
     if (newSection <= totalSection) {
       this.setState({
         section: newSection,
-        moveRight: this.calculateTranslateX(newSection, width)
+        moveRight: this.calculateTranslateX(newSection, width),
+        firstBox: this.calculateFirstBox(),
+        lastBox: this.calculateLastBox()
       });
     } else {
       this.setState({
         section: totalSection,
-        moveRight: this.calculateTranslateX(totalSection, width)
+        moveRight: this.calculateTranslateX(totalSection, width),
+        firstBox: this.calculateFirstBox("+%"),
+        lastBox: 14
       });
     }
   };
@@ -95,14 +133,42 @@ export class ContentSlider extends Component {
     let calc = (section / 100) * width;
     return calc;
   };
+  calculateFirstBox = sign => {
+    //if sign is '+' next button has been click else prev clicked
+    let { firstBox, totalBoxes } = this.state;
+    switch (sign) {
+      case "+%":
+        return 14 - totalBoxes + 1;
+      default:
+        return firstBox + totalBoxes;
+    }
+  };
+  calculateLastBox = sign => {
+    //if sign is '+' next button has been click else prev clicked
+    let { lastBox, totalBoxes, section, totalSection } = this.state;
+    switch (sign) {
+      case "+%":
+        return;
+      default:
+        if (section === totalSection) {
+          return 14;
+        } else {
+          return lastBox + totalBoxes;
+        }
+    }
+  };
   render() {
     const renderContentRow = () => {
+      let { moveRight, firstBox, lastBox } = this.state;
+      let { data, id } = this.props;
       return (
         <ContentRow
-          moveRight={this.state.moveRight}
+          moveRight={moveRight}
           ref={el => (this.el = el)}
-          data={this.props.data}
-          id={this.props.id}
+          data={data}
+          id={id}
+          firstBox={firstBox}
+          lastBox={lastBox}
         ></ContentRow>
       );
     };

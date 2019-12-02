@@ -7,7 +7,12 @@
   padding: 3rem;
   background-color: rgba(29, 29, 29, 0.459);
   z-index: 1;
-
+  @include respond("tab-port") {
+    padding: 2rem;
+  }
+  @include respond("phone") {
+    padding: 1rem;
+  }
   &__right {
     width: 50%;
     display: flex;

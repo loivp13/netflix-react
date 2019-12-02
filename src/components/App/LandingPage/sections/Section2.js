@@ -34,7 +34,7 @@ export class Section2 extends Component {
           We'll email you a reminder three days before your trial ends. Cancel
           anytime before 9/21 and you won't be charged.
         </div>
-        <Link to="/browse">
+        <Link className="u-margin-bottom-small" to="/browse">
           <button className="btn btn--red btn--large">
             Try 30 days free{" "}
             <span>

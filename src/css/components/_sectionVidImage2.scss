@@ -2,6 +2,9 @@
   margin: auto;
   height: 40rem;
   width: 50rem;
+  @include respond(phone) {
+    width: 40rem;
+  }
   &__container {
     display: flex;
     flex-direction: column;
@@ -16,6 +19,9 @@
     position: relative;
     top: -30rem;
     right: -5rem;
+    @include respond(phone) {
+      top: -25rem;
+    }
     & video {
       width: 77%;
     }

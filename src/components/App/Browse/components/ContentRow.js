@@ -22,13 +22,16 @@ export class ContentRow extends Component {
   }
 
   render() {
+    let { id, firstBox, lastBox, data } = this.props;
     const generateContentBox = () => {
-      return this.props.data.map(x => {
+      return data.map((x, i) => {
         return (
           <ContentBox
-            id={this.props.id}
+            id={id}
             snippet={x.snippet}
             key={x.id.videoId}
+            firstBox={firstBox === i}
+            lastBox={lastBox === i}
           ></ContentBox>
         );
       });

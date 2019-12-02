@@ -7,16 +7,26 @@ export class ContentBox extends Component {
   constructor(props) {
     super(props);
   }
-  render() {
-    let { snippet } = this.props;
-    function cleanTitleString(string) {
-      let indexOfPipeChar = string.indexOf("|");
-      return string.slice(0, indexOfPipeChar);
+  cleanTitleString(string) {
+    let indexOfPipeChar = string.indexOf("|");
+    return string.slice(0, indexOfPipeChar);
+  }
+  cssCheckForFix = (firstBox, lastBox) => {
+    console.log(firstBox, lastBox);
+    if (firstBox) {
+      return "ContentBox__first";
+    } else if (lastBox) {
+      return "ContentBox__last";
+    } else {
+      return "";
     }
+  };
+  render() {
+    let { snippet, firstBox, lastBox } = this.props;
 
     return (
       <div
-        className="ContentBox"
+        className={`ContentBox ${this.cssCheckForFix(firstBox, lastBox)}`}
         onClick={() => this.props.toggleContentDetails(snippet, this.props.id)}
       >
         <img
@@ -28,7 +38,7 @@ export class ContentBox extends Component {
           <div className="ContentBox--content__left">
             <div className="ContentBox--content__title">
               {" "}
-              {cleanTitleString(snippet.title)}
+              {this.cleanTitleString(snippet.title)}
             </div>
             <div className="ContentBox--content__description"></div>
           </div>
@@ -57,7 +67,4 @@ export class ContentBox extends Component {
   }
 }
 
-export default connect(
-  null,
-  { toggleContentDetails }
-)(ContentBox);
+export default connect(null, { toggleContentDetails })(ContentBox);
