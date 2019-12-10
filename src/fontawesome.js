@@ -11,6 +11,7 @@ import {
 
 //import from solid icons
 import {
+  faTimes,
   faGift,
   faUserCircle,
   faHeart,
@@ -48,6 +49,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
+  faTimes,
+
   faUserCircle,
   faHeart,
   faGitSquare,
