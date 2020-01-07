@@ -1,9 +1,10 @@
 .Billboard {
   background: url("https://occ-0-33-3996.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABW9j81NdNXtQJhLxh3FrDtD-6iGRqa5Bv028nHZrnidbP8TZMKakBJrluiZulILt04mJauGtQgm6yEKNcBfFFa48Urd_0ExmGQ.webp?r=dae");
-  height: 90vh;
+  height: 85vh;
   background-position: center;
   background-size: cover;
   position: relative;
+  margin-bottom: 4rem;
   @include respond("tab-land") {
     height: 60vh;
   }

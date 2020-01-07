@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ContentBox from "./ContentBox";
+
 import { withSize } from "react-sizeme";
 import { connect } from "react-redux";
 

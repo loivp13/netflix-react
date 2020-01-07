@@ -36,6 +36,7 @@ export class Dropdown extends Component {
             ></FontAwesomeIcon>
           </span>
         </div>
+        <div className={`Dropdown__hr ${renderHiddenClass()}`}></div>
         <div className={`Dropdown__answer ${renderHiddenClass()}`}>
           {answer}
         </div>

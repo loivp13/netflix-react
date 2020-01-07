@@ -48,12 +48,14 @@
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
     "react-sizeme": "^2.6.10",
+    "react-slick": "^0.25.2",
     "react-youtube": "^7.9.0",
     "reactstrap": "^7.1.0",
     "redux": "^4.0.1",
     "redux-form": "^8.2.1",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
+    "slick-carousel": "^1.8.1",
     "webpack-shell-plugin": "^0.5.0"
   },
   "engines": {

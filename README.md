@@ -1,4 +1,6 @@
-# Rexpack
+# Netflix
+
+Netflix-React uses Rexpack boilerplate. This application was created to mimic Netflix's user's experience of logging in, signing up, and browsing.
 
 Rexpack is a minimal Express, Webpack, & React boilerplate app that serves an image, adds some styling and some basic functionality, just to show everything working at the most basic level. This project can then be used as a template for other more complex apps.
 
@@ -20,19 +22,6 @@ Rexpack can be run locally on your machine, or pushed to Google App Engine Flexi
 
 ## Run the code on a local webserver
 
-    npm start
+    npm startAll
 
 Then navigate to `http://localhost:8080`
-
-## Deploy to Google App Engine Flex
-
-    npm run deploy
-
-## Run test
-
-    npm test
-
-## Generate coverage report
-
-    npm run coverage
-

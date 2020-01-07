@@ -4,6 +4,8 @@ import Billboard from "./components/Billboard";
 import ContentSlider from "./components/ContentSlider";
 import ContentSliderProd from "./components/ContentSliderProd";
 import ContentDetails from "./components/ContentDetails";
+import Slider from "react-slick";
+import ContentBox from "./components/ContentBox";
 
 import { connect } from "react-redux";
 
@@ -16,7 +18,7 @@ class Browse extends Component {
     this.size = React.createRef();
   }
   componentDidMount() {
-    this.setState({ width: this.size.current.clientWidth });
+    // this.setState({ width: this.size.current.clientWidth });
   }
   render() {
     let env = "dev";
@@ -42,7 +44,6 @@ class Browse extends Component {
         </React.Fragment>
       ));
     };
-
     const generateSliders =
       env === "dev"
         ? () => {
@@ -51,12 +52,45 @@ class Browse extends Component {
         : () => {
             return <ContentSliderProd></ContentSliderProd>;
           };
+
+    //render using slick package
+
+    let settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 6,
+      slidesToScroll: 6
+    };
+    let generateSlickSlider = () => {
+      return this.props.videos.map((x, index) => (
+        <div className={`SlickSlider`} key={index + 1000}>
+          <Slider {...settings}>
+            {generateContentBox(x)}
+            {generateContentDetails(index)}
+          </Slider>
+        </div>
+      ));
+    };
+    const generateContentBox = data => {
+      return data.map((x, i) => {
+        return (
+          <ContentBox
+            id={i}
+            snippet={x.snippet}
+            key={x.id.videoId}
+          ></ContentBox>
+        );
+      });
+    };
+
     return (
       <div className="browse">
         <div className="browse__navbar">
           <Navbar></Navbar>
           <Billboard></Billboard>
-          {generateSliders()}
+          {/* {generateSliders()} */}
+          {generateSlickSlider()}
         </div>
       </div>
     );

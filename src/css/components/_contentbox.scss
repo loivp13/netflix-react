@@ -1,10 +1,12 @@
 .ContentBox {
-  width: 6.6%;
-  transition: transform 300ms ease 100ms;
-  overflow: hidden;
+  // width: 6.6%;
+  transition: transform 100ms ease 100ms;
+  // overflow: hidden;
   margin: 0;
   position: relative;
   z-index: 5;
+  height: 25vh;
+  min-height: 20rem;
   @include respond("tab-land") {
   }
   @include respond("tab-port") {
@@ -15,22 +17,22 @@
     transform: translateX(0%);
   }
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.4);
+    z-index: 20;
   }
   &:hover &--content {
     opacity: 1;
   }
   &--image {
     object-fit: fill;
-    height: 20rem;
+    height: 100%;
     width: 100%;
-    margin: -3rem 0;
     display: block;
     position: absolute;
     z-index: -1;
   }
   &--content {
-    height: 14rem;
+    height: 87%;
     display: flex;
     position: relative;
     padding: 1rem;

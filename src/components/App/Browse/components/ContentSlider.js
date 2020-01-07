@@ -1,5 +1,6 @@
 import React, { Component, createRef } from "react";
 import ContentRow from "./ContentRow";
+
 import { connect } from "react-redux";
 import { withSize } from "react-sizeme";
 
@@ -158,6 +159,8 @@ export class ContentSlider extends Component {
     }
   };
   render() {
+    let { data, id } = this.props;
+    //rendering custom slider
     const renderContentRow = () => {
       let { moveRight, firstBox, lastBox } = this.state;
       let { data, id } = this.props;
@@ -172,7 +175,6 @@ export class ContentSlider extends Component {
         ></ContentRow>
       );
     };
-
     return (
       <div className="ContentSlider">
         <button
