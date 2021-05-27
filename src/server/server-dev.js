@@ -10,11 +10,6 @@ import proxy from "http-proxy-middleware";
 
 const authLocalRoute = require("./routes/authLocal.js");
 const userRoute = require("./routes//userRoute.js");
-
-const passport = require("passport");
-const mongoose = require("mongoose");
-const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
 const session = require("express-session");
 const validator = require("express-validator");
 const logger = require("morgan");
@@ -24,8 +19,6 @@ const app = express(),
   HTML_FILE = path.join(DIST_DIR, "index.html"),
   compiler = webpack(config),
   devServerProxy = config.devServer.proxy;
-
-require("./passportConfig.js")(passport);
 
 app.use(logger("dev"));
 
@@ -76,10 +69,6 @@ app.use(
   })
 );
 app.use(webpackHotMiddleware(compiler));
-
-// use passport
-app.use(passport.initialize());
-app.use(passport.session());
 
 //setup proxy route
 if (devServerProxy) {

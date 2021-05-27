@@ -1,13 +1,6 @@
 import path from "path";
 import express from "express";
 import proxy from "http-proxy-middleware";
-
-const authLocalRoute = require("./routes/authLocal.js");
-const userRoute = require("./routes//userRoute.js");
-const passport = require("passport");
-const mongoose = require("mongoose");
-const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
 const session = require("express-session");
 const validator = require("express-validator");
 const logger = require("morgan");
@@ -43,8 +36,6 @@ const app = express(),
     },
   };
 
-require("./passportConfig.js")(passport);
-
 app.use(logger("dev"));
 
 app.use(express.json());
@@ -75,9 +66,6 @@ app.use(
     },
   })
 );
-// use passport
-app.use(passport.initialize());
-app.use(passport.session());
 
 if (devServerProxy) {
   Object.keys(devServerProxy).forEach((context) => {
@@ -85,8 +73,6 @@ if (devServerProxy) {
   });
 }
 //express routes
-app.use("/authLocal", authLocalRoute);
-app.use("/user", userRoute);
 
 app.use(express.static(DIST_DIR));
 app.use(cors());
