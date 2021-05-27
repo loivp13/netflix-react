@@ -19,7 +19,7 @@ export class SignIn extends Component {
       label,
       type,
       meta,
-      fieldClass
+      fieldClass,
     }) => (
       <div className={fieldClass}>
         <input
@@ -75,9 +75,14 @@ export class SignIn extends Component {
                 classes="SignIn--input__password"
                 placeholder="Password"
               ></Field>
-              <button className="btn--red btn--full u-margin-bottom-small u-margin-top-medium">
-                Sign In
-              </button>
+              <Link to="/browse">
+                <button
+                  type={"button"}
+                  className="btn--red btn--full u-margin-bottom-small u-margin-top-medium"
+                >
+                  Sign in
+                </button>
+              </Link>
               <Field
                 fieldClass="SignIn--checkbox"
                 name="rememberMe"
@@ -112,7 +117,7 @@ export class SignIn extends Component {
   }
 }
 
-const validate = values => {
+const validate = (values) => {
   const errors = {};
   if (!values.email) {
     errors.email = "Required";
@@ -128,5 +133,5 @@ const validate = values => {
 export default reduxForm({
   form: "wizard", //Form name is same
   destroyOnUnmount: false,
-  validate
+  validate,
 })(SignIn);

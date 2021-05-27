@@ -25,11 +25,6 @@ const app = express(),
   compiler = webpack(config),
   devServerProxy = config.devServer.proxy;
 
-// connect to mongoDB
-const mongoDB =
-  "mongodb://masterveloute:Heyheyhey3@ds131747.mlab.com:31747/gameapp_react";
-mongoose.connect(mongoDB, { useNewUrlParser: true });
-
 require("./passportConfig.js")(passport);
 
 app.use(logger("dev"));
@@ -45,13 +40,13 @@ app.use(
   session({
     secret: "dhfpaiojdhfopshdapfsapfoidnfopsangspd",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
   })
 );
 app.use(flash());
 app.use(
   validator({
-    errorFormatter: function(param, msg, value) {
+    errorFormatter: function (param, msg, value) {
       let namespace = param.split("."),
         root = namespace.shift(),
         formParam = root;
@@ -63,21 +58,21 @@ app.use(
       return {
         param: formParam,
         msg,
-        value
+        value,
       };
-    }
+    },
   })
 );
 
 app.use(
   historyApiFallback({
-    verbose: false
+    verbose: false,
   })
 );
 app.use(
   webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
-    logLevel: "silent"
+    logLevel: "silent",
   })
 );
 app.use(webpackHotMiddleware(compiler));
@@ -88,7 +83,7 @@ app.use(passport.session());
 
 //setup proxy route
 if (devServerProxy) {
-  Object.keys(devServerProxy).forEach(context => {
+  Object.keys(devServerProxy).forEach((context) => {
     return app.use(proxy(context, devServerProxy[context]));
   });
 }
