@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "./components/Navbar";
-import Billboard from "./components/Billboard";
+import Billboard from "./components/BillBoard";
 import ContentSlider from "./components/ContentSlider";
 import ContentSliderProd from "./components/ContentSliderProd";
 import ContentDetails from "./components/ContentDetails";
@@ -13,7 +13,7 @@ class Browse extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: 0
+      width: 0,
     };
     this.size = React.createRef();
   }
@@ -23,7 +23,7 @@ class Browse extends Component {
   render() {
     let env = "dev";
 
-    let generateContentDetails = index => {
+    let generateContentDetails = (index) => {
       if (this.props.contentDetails.id === index) {
         return <ContentDetails></ContentDetails>;
       }
@@ -60,7 +60,7 @@ class Browse extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 6,
-      slidesToScroll: 6
+      slidesToScroll: 6,
     };
     let generateSlickSlider = () => {
       return this.props.videos.map((x, index) => (
@@ -72,7 +72,7 @@ class Browse extends Component {
         </div>
       ));
     };
-    const generateContentBox = data => {
+    const generateContentBox = (data) => {
       return data.map((x, i) => {
         return (
           <ContentBox
@@ -100,7 +100,7 @@ class Browse extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     videos: state.videos.videos,
-    contentDetails: state.contentDetails
+    contentDetails: state.contentDetails,
   };
 };
 
