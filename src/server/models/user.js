@@ -11,14 +11,14 @@ let userSchema = new Schema({
   state: { type: String, required: true },
   zipcode: { type: String, required: true },
   cart: { type: Object },
-  wishList: { type: Object }
+  wishList: { type: Object },
 });
 
-userSchema.methods.encryptPassword = function(password) {
+userSchema.methods.encryptPassword = function (password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(5), null);
 };
 
-userSchema.methods.validPassword = function(password) {
+userSchema.methods.validPassword = function (password) {
   return bcrypt.compareSync(password, this.password);
 };
 

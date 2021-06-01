@@ -2,7 +2,7 @@
   position: absolute;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   font-size: 1.3rem;
   padding: 3rem;
   background-color: rgba(29, 29, 29, 0.459);
@@ -30,6 +30,11 @@
         display: none;
       }
     }
+    &--brand {
+      & > img {
+        width: 4rem;
+      }
+    }
     &--browse:hover ~ * {
       display: block;
     }
@@ -41,7 +46,7 @@
   }
 
   &__left {
-    width: 30%;
+    width: 15%;
     display: flex;
     justify-content: space-around;
     align-items: center;

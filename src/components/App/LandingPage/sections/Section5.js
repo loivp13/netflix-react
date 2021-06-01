@@ -25,7 +25,7 @@ export class Section5 extends Component {
                   Corporate Information
                 </Link>
                 <Link to="#" className="section5__col1--item5">
-                  Netflix Originals
+                  Streaming Originals
                 </Link>
               </div>
               <div to="#" className="section5__footer-col2">

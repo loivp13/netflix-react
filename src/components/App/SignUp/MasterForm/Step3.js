@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import { Link } from "react-router-dom";
+import Warning from "../../Warning";
+import Disclaimer from "../../Disclaimer";
 
 export class Step3 extends Component {
   render() {
@@ -23,7 +25,7 @@ export class Step3 extends Component {
       input,
       label,
       type,
-      meta
+      meta,
     }) => (
       <div className="">
         <input
@@ -56,6 +58,7 @@ export class Step3 extends Component {
               Create your account.
             </div>
           </div>
+          <Warning></Warning>
         </div>
         <div className="step3--formBox">
           <Field
@@ -78,6 +81,7 @@ export class Step3 extends Component {
             Continue
           </button>
         </Link>
+        <Disclaimer></Disclaimer>
       </form>
     );
   }
@@ -86,7 +90,7 @@ let mapStateToProps = (state, ownProps) => {
   return { selected: state.form.wizard.values.tier };
 };
 
-const validate = values => {
+const validate = (values) => {
   const errors = {};
   if (!values.email) {
     errors.email = "Required";
@@ -102,5 +106,5 @@ const validate = values => {
 export default reduxForm({
   form: "wizard", //Form name is same
   destroyOnUnmount: false,
-  validate
+  validate,
 })(Step3);

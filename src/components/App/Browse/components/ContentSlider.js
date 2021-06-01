@@ -16,7 +16,7 @@ export class ContentSlider extends Component {
       width: 0,
       firstBox: 0,
       lastBox: 0,
-      totalBoxes: 0
+      totalBoxes: 0,
     };
     this.ContentRowElem = React.createRef();
   }
@@ -26,6 +26,7 @@ export class ContentSlider extends Component {
     }
   }
   componentWillMount() {
+    console.log(this.props.width);
     this.onWidthScale();
   }
 
@@ -43,7 +44,7 @@ export class ContentSlider extends Component {
           moveRight: 0,
           firstBox: 0,
           lastBox: 5,
-          totalBoxes: 6
+          totalBoxes: 6,
         });
       case width <= 1092.63 && width > 883:
         return this.setState({
@@ -52,7 +53,7 @@ export class ContentSlider extends Component {
           moveRight: 0,
           firstBox: 0,
           lastBox: 4,
-          totalBoxes: 5
+          totalBoxes: 5,
         });
       case width <= 883 && width > 583:
         return this.setState({
@@ -61,7 +62,7 @@ export class ContentSlider extends Component {
           moveRight: 0,
           firstBox: 0,
           lastBox: 3,
-          totalBoxes: 4
+          totalBoxes: 4,
         });
       default:
         return this.setState({
@@ -70,7 +71,7 @@ export class ContentSlider extends Component {
           moveRight: 0,
           firstBox: 0,
           lastBox: 2,
-          totalBoxes: 3
+          totalBoxes: 3,
         });
     }
   };
@@ -81,7 +82,7 @@ export class ContentSlider extends Component {
     if (section === 0) {
       return this.setState({
         moveRight: this.calculateTranslateX(totalSection, width),
-        section: totalSection
+        section: totalSection,
       });
     }
     let newSection = section - 100;
@@ -89,12 +90,12 @@ export class ContentSlider extends Component {
     if (newSection < 0) {
       this.setState({
         section: 0,
-        moveRight: 0
+        moveRight: 0,
       });
     } else {
       this.setState({
         section: newSection,
-        moveRight: this.calculateTranslateX(newSection, width)
+        moveRight: this.calculateTranslateX(newSection, width),
       });
     }
   };
@@ -108,7 +109,7 @@ export class ContentSlider extends Component {
         moveRight: 0,
         section: 0,
         firstBox: 0,
-        lastBox: totalBoxes
+        lastBox: totalBoxes,
       });
     }
     let newSection = section + 100;
@@ -119,14 +120,14 @@ export class ContentSlider extends Component {
         section: newSection,
         moveRight: this.calculateTranslateX(newSection, width),
         firstBox: this.calculateFirstBox(),
-        lastBox: this.calculateLastBox()
+        lastBox: this.calculateLastBox(),
       });
     } else {
       this.setState({
         section: totalSection,
         moveRight: this.calculateTranslateX(totalSection, width),
         firstBox: this.calculateFirstBox("+%"),
-        lastBox: 14
+        lastBox: 14,
       });
     }
   };
@@ -134,7 +135,7 @@ export class ContentSlider extends Component {
     let calc = (section / 100) * width;
     return calc;
   };
-  calculateFirstBox = sign => {
+  calculateFirstBox = (sign) => {
     //if sign is '+' next button has been click else prev clicked
     let { firstBox, totalBoxes } = this.state;
     switch (sign) {
@@ -144,7 +145,7 @@ export class ContentSlider extends Component {
         return firstBox + totalBoxes;
     }
   };
-  calculateLastBox = sign => {
+  calculateLastBox = (sign) => {
     //if sign is '+' next button has been click else prev clicked
     let { lastBox, totalBoxes, section, totalSection } = this.state;
     switch (sign) {
@@ -167,7 +168,7 @@ export class ContentSlider extends Component {
       return (
         <ContentRow
           moveRight={moveRight}
-          ref={el => (this.el = el)}
+          ref={(el) => (this.el = el)}
           data={data}
           id={id}
           firstBox={firstBox}

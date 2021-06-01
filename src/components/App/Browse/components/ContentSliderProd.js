@@ -23,7 +23,6 @@ export class ContentSliderProd extends Component {
           ></FontAwesomeIcon>
         </button>
         <ContentRow></ContentRow>
-
         <button className="btn btn--semiTransparent ContentSlider__arrowIcon--right">
           <FontAwesomeIcon
             className=""
@@ -37,11 +36,8 @@ export class ContentSliderProd extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    videos: state.videos
+    videos: state.videos,
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { setMergeData }
-)(ContentSliderProd);
+export default connect(mapStateToProps, { setMergeData })(ContentSliderProd);

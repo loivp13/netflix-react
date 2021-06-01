@@ -28,6 +28,11 @@
     align-items: center;
     padding-top: 1em;
     margin: 0 45px;
+    & > div {
+      & > img {
+        width: 4rem;
+      }
+    }
   }
 
   &__logo {

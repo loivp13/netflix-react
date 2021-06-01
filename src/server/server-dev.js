@@ -7,9 +7,6 @@ import historyApiFallback from "connect-history-api-fallback";
 import config from "../../webpack.dev.config.js";
 import cors from "cors";
 import proxy from "http-proxy-middleware";
-
-const authLocalRoute = require("./routes/authLocal.js");
-const userRoute = require("./routes//userRoute.js");
 const session = require("express-session");
 const validator = require("express-validator");
 const logger = require("morgan");
@@ -76,9 +73,6 @@ if (devServerProxy) {
     return app.use(proxy(context, devServerProxy[context]));
   });
 }
-//express routes
-app.use("/authLocal", authLocalRoute);
-app.use("/user", userRoute);
 
 app.get("*", (req, res, next) => {
   compiler.outputFileSystem.readFile(HTML_FILE, (err, result) => {

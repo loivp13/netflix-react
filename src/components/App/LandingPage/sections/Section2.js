@@ -6,7 +6,7 @@ export class Section2 extends Component {
   render() {
     return (
       <div className="section2">
-        <h1 className="section2__header--1">All of Netflix.</h1>
+        <h1 className="section2__header--1">All of Streaming.</h1>
         <h1 className="section2__header--2">Free for 30 days.</h1>
         <div className="section2__billingGraph">
           <div className="section2__billingGraph--1">

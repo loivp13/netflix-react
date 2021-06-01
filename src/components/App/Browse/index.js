@@ -14,11 +14,46 @@ class Browse extends Component {
     super(props);
     this.state = {
       width: 0,
+      slides: 6,
     };
     this.size = React.createRef();
   }
+
+  updateSlides = () => {
+    let width = this.size.current.scrollWidth;
+
+    switch (true) {
+      case width > 1092.63:
+        return this.setState({
+          ...this.state,
+          slides: 6,
+        });
+      case width <= 1092.63 && width > 883:
+        return this.setState({
+          totalSection: 200,
+          ...this.state,
+          slides: 5,
+        });
+      case width <= 883 && width > 583:
+        return this.setState({
+          ...this.state,
+          slides: 4,
+        });
+      default:
+        return this.setState({
+          ...this.state,
+          slides: 3,
+        });
+    }
+  };
   componentDidMount() {
-    // this.setState({ width: this.size.current.clientWidth });
+    this.updateSlides();
+    window.addEventListener("resize", () => {
+      this.updateSlides();
+    });
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize");
   }
   render() {
     let env = "dev";
@@ -32,7 +67,7 @@ class Browse extends Component {
     let generateContentSlider = () => {
       return this.props.videos.map((x, index) => (
         <React.Fragment key={index + 1000}>
-          <div className="Browse__MeasureContent" ref={this.size}>
+          <div className="Browse__MeasureContent">
             <ContentSlider
               width={this.state.width}
               key={index}
@@ -59,12 +94,12 @@ class Browse extends Component {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 6,
-      slidesToScroll: 6,
+      slidesToShow: this.state.slides,
+      slidesToScroll: this.state.slides,
     };
     let generateSlickSlider = () => {
       return this.props.videos.map((x, index) => (
-        <div className={`SlickSlider`} key={index + 1000}>
+        <div ref={this.size} className={`SlickSlider`} key={index + 1000}>
           <Slider {...settings}>
             {generateContentBox(x)}
             {generateContentDetails(index)}

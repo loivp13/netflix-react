@@ -13,12 +13,12 @@ import Section4 from "./sections/Section4";
 import Section5 from "./sections/Section5";
 
 export class LandingPage extends Component {
-  purgeState = e => {
+  purgeState = (e) => {
     e.preventDefault();
     this.props.dispatch({
       type: PURGE,
       key: "root",
-      result: () => {}
+      result: () => {},
     });
   };
 
