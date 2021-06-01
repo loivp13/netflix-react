@@ -97,7 +97,7 @@ export class SignIn extends Component {
             </form>
           </div>
           <div className="SignIn__box--footer">
-            New to Netflix?{" "}
+            New to Streaming?{" "}
             <em>
               <Link to="/signup">Sign up now.</Link>
             </em>

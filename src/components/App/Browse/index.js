@@ -53,7 +53,7 @@ class Browse extends Component {
     });
   }
   componentWillUnmount() {
-    window.removeEventListener("resize");
+    window.removeEventListener("resize", this.updateSlides());
   }
   render() {
     let env = "dev";
