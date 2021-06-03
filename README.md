@@ -1,5 +1,5 @@
 # Netflix
-https://netflix-react.herokuapp.com/
+https://netflix.loivanpham.com/
 
 Netflix-React uses Rexpack boilerplate. This application was created to mimic Netflix's user's experience of logging in, signing up, and browsing.
 
