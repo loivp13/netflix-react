@@ -6,12 +6,12 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: "./src/index.js"
+    main: "./src/index.js",
   },
   output: {
     path: path.join(__dirname, "dist"),
     publicPath: "/",
-    filename: "[name].js"
+    filename: "[name].js",
   },
   target: "web",
   devtool: "#source-map",
@@ -22,10 +22,10 @@ module.exports = {
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true // set to true if you want JS source maps
+        sourceMap: true, // set to true if you want JS source maps
       }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
+      new OptimizeCSSAssetsPlugin({}),
+    ],
   },
   module: {
     rules: [
@@ -34,8 +34,8 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: "babel-loader",
+        },
       },
       {
         // Loads the javacript into html template provided.
@@ -44,14 +44,14 @@ module.exports = {
         use: [
           {
             loader: "html-loader",
-            options: { minimize: true }
-          }
-        ]
+            options: { minimize: true },
+          },
+        ],
       },
       {
         // Loads images into CSS and Javascript files
         test: /\.jpg$/,
-        use: [{ loader: "url-loader" }]
+        use: [{ loader: "url-loader" }],
       },
       {
         // Loads CSS into a file when you import it via Javascript
@@ -60,14 +60,18 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader" // translates CSS into CommonJS
+            loader: "css-loader", // translates CSS into CommonJS
           },
           {
-            loader: "sass-loader" // compiles Sass to CSS
-          }
-        ]
-      }
-    ]
+            loader: "sass-loader", // compiles Sass to CSS
+          },
+        ],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ["file-loader"],
+      },
+    ],
   },
   devServer: {
     noInfo: true,
@@ -78,35 +82,35 @@ module.exports = {
         ws: false,
         changeOrigin: true,
         logLevel: "debug",
-        onProxyRes: function(proxyRes, req, res) {
+        onProxyRes: function (proxyRes, req, res) {
           proxyRes.headers["Allow-Access-Control-Origin"] = "*";
         },
-        onProxyReq: function(proxyReq, req, res) {
+        onProxyReq: function (proxyReq, req, res) {
           proxyReq.setHeader("Allow-Access-Control-Origin", "*");
-        }
+        },
       },
       "/games": {
         target: "https://api-v3.igdb.com",
         ws: false,
         changeOrigin: true,
         logLevel: "debug",
-        onProxyRes: function(proxyRes, req, res) {
+        onProxyRes: function (proxyRes, req, res) {
           proxyRes.headers["Allow-Access-Control-Origin"] = "*";
         },
-        onProxyReq: function(proxyReq, req, res) {
+        onProxyReq: function (proxyReq, req, res) {
           proxyReq.setHeader("Allow-Access-Control-Origin", "*");
-        }
-      }
-    }
+        },
+      },
+    },
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/html/index.html",
-      filename: "./index.html"
+      filename: "./index.html",
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
-      chunkFilename: "[id].css"
-    })
-  ]
+      chunkFilename: "[id].css",
+    }),
+  ],
 };
