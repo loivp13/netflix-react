@@ -13,9 +13,6 @@ class Section1 extends Component {
             <img src={StreamingLogoImage} alt="" />
           </div>
           <div className="section1__signinBtn">
-            <Link to="/signin">
-              <button className="btn btn--red btn-third--1">Sign In</button>
-            </Link>
             <Link to="/signup">
               <button className="btn btn--black btn-third--2">Sign Up</button>
             </Link>
